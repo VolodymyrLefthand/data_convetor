@@ -47,3 +47,11 @@ def read_yaml(file_path):
     except Exception as e:
         print(f"Error reading YAML{e}")
         sys.exit(1)
+
+def write_yaml(data, file_path):
+    try:
+        with open(file_path,'w',encoding='utf-8') as f:
+            yaml.dump(data,f, allow_unicode=True)
+    except Exception as e:
+        print(f"Error writing YAML{e}")
+        sys.exit(1)
