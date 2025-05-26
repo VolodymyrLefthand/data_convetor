@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
 def read_json(file_path):
     try:
-        with open(file_path,'r', enconding='utf-8') as f:
+        with open(file_path,'r', encoding='utf-8') as f:
             return json.load(f)
     except Exception as e:
         print(f"Error reading JSON:{e}")
