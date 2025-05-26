@@ -16,6 +16,7 @@ def parse_args():
 
     return input_file, output_file
 
+
 if __name__ == "__main__":
     input_file,output_file =parse_args()
     print(f"Input file: {input_file}")
