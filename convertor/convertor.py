@@ -2,6 +2,7 @@ import sys
 import os
 import json
 import yaml
+import xmltodict
 
 
 def parse_args():
@@ -54,4 +55,12 @@ def write_yaml(data, file_path):
             yaml.dump(data,f, allow_unicode=True)
     except Exception as e:
         print(f"Error writing YAML{e}")
+        sys.exit(1)
+
+def read_xml(file_path):
+    try:
+        with open(file_path,'r',encoding='utf-8') as f:
+            return xmltodict.parse(f.read())
+    except Exception as e:
+        print(f"Error reading XML{e}")
         sys.exit(1)
