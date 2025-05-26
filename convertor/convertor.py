@@ -30,3 +30,6 @@ def read_json(file_path):
         print(f"Error reading JSON:{e}")
         sys.exit(1)
 
+def write_fson(data,file_path):
+    with open(file_path,'w') as f:
+        json.dump(data,f,indent=4)
