@@ -25,13 +25,19 @@ if __name__ == "__main__":
     print(f"Input file: {input_file}")
     print(f"Output file: {output_file}")
 
+#2-3
+
+
 def read_json(file_path):
     try:
         with open(file_path,'r', encoding='utf-8') as f:
             return json.load(f)
+
     except Exception as e:
         print(f"Error reading JSON:{e}")
         sys.exit(1)
+
+
 
 def write_json(data,file_path):
     try:
@@ -41,13 +47,18 @@ def write_json(data,file_path):
         print(f"Error writing JSON {e}")
         sys.exit(1)
 
+#4-5
+
 def read_yaml(file_path):
     try:
         with open(file_path,'r',encoding='utf-8') as f:
             return yaml.safe_load(f)
+
     except Exception as e:
         print(f"Error reading YAML{e}")
         sys.exit(1)
+
+
 
 def write_yaml(data, file_path):
     try:
@@ -57,10 +68,20 @@ def write_yaml(data, file_path):
         print(f"Error writing YAML{e}")
         sys.exit(1)
 
+#6-7
+
 def read_xml(file_path):
     try:
         with open(file_path,'r',encoding='utf-8') as f:
             return xmltodict.parse(f.read())
     except Exception as e:
         print(f"Error reading XML{e}")
+        sys.exit(1)
+
+def write_xml(data, file_path):
+    try:
+        with open(file_path,'w',encoding='utf-8') as f:
+            xmltodict.unparse(data,f, pretty=True)
+    except Exception as e:
+        print(f"Error writing XML{e}")
         sys.exit(1)
