@@ -1,5 +1,6 @@
 import sys
 import os
+import json
 
 def parse_args():
     if len(sys.argv) !=3:
@@ -20,3 +21,12 @@ if __name__ == "__main__":
     input_file, output_file = parse_args()
     print(f"Input file: {input_file}")
     print(f"Output file: {output_file}")
+
+def read_json(file_path):
+    try:
+        with open(file_path,'r', enconding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error reading JSON:{e}")
+        sys.exit(1)
+
