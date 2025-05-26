@@ -85,3 +85,5 @@ def write_xml(data, file_path):
     except Exception as e:
         print(f"Error writing XML{e}")
         sys.exit(1)
+
+from PyQt5.QtWidgets import QApplication, QFileDialog
