@@ -1,6 +1,8 @@
 import sys
 import os
 import json
+import yaml
+
 
 def parse_args():
     if len(sys.argv) !=3:
@@ -24,12 +26,24 @@ if __name__ == "__main__":
 
 def read_json(file_path):
     try:
-        with open(file_path,'r', enconding='utf-8') as f:
+        with open(file_path,'r', encoding='utf-8') as f:
             return json.load(f)
     except Exception as e:
         print(f"Error reading JSON:{e}")
         sys.exit(1)
 
-def write_fson(data,file_path):
-    with open(file_path,'w') as f:
-        json.dump(data,f,indent=4)
+def write_json(data,file_path):
+    try:
+        with open(file_path,'w',encoding='utf-8') as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error writing JSON {e}")
+        sys.exit(1)
+
+def read_yaml(file_path):
+    try:
+        with open(file_path,'r',encoding='utf-8') as f:
+            return yaml.safe_load(f)
+    except Exception as e:
+        print(f"Error reading YAML{e}")
+        sys.exit(1)
