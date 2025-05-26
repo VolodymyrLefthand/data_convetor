@@ -2,6 +2,7 @@ import sys
 import os
 import json
 
+
 def parse_args():
     if len(sys.argv) !=3:
         print("Error: Incorrect number of arguments")
@@ -24,12 +25,12 @@ if __name__ == "__main__":
 
 def read_json(file_path):
     try:
-        with open(file_path,'r', enconding='utf-8') as f:
+        with open(file_path,'r', encoding='utf-8') as f:
             return json.load(f)
     except Exception as e:
         print(f"Error reading JSON:{e}")
         sys.exit(1)
 
-def write_fson(data,file_path):
-    with open(file_path,'w') as f:
-        json.dump(data,f,indent=4)
+
+
+
